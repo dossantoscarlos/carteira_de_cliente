@@ -17,6 +17,11 @@ class ClienteController extends Controller
         return response()->json($cliente);
     }
 
+    public function indexAll() : JsonResponse
+    {
+        return response()->json(Cliente::all(), 200);
+    }
+
     public function store(Request $request) : JsonResponse
     {
         $this->validate($request, [

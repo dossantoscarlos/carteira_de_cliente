@@ -17,11 +17,12 @@
 
 ## Rotas disponíveis
 
+- GET    /api/v1/clientes/all
 - GET    /api/v1/clientes
-- GET    /api/v1/clientes/{id}
+- GET    /api/v1/cliente/{id}
 - POST   /api/v1/clientes
-- PUT    /api/v1/clientes/{id}
-- Delete /api/v1/clientes/{id}
+- PUT    /api/v1/cliente/{id}
+- Delete /api/v1/cliente/{id}
 
 ## Subindo servidor
 
