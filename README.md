@@ -17,12 +17,39 @@
 
 ## Rotas disponíveis
 
-- GET    /api/v1/clientes
-- GET    /api/v1/clientes/{status}
-- GET    /api/v1/cliente/{id}
-- POST   /api/v1/clientes
-- PUT    /api/v1/cliente/{id}
-- Delete /api/v1/cliente/{id}
+- GET ->  /api/v1/clientes
+- GET -> /api/v1/clientes/{status}
+  <TABLE>
+      <THEAD>
+          <TH>STATUS</TH>
+      </THEAD>
+      <TR>
+          <TD>
+              ATIVO
+          </TD>
+          <TD>
+              DESATIVADO
+          </TD>
+      </TR>
+  </TABLE>
+- GET -> /api/v1/cliente/{id}
+    
+- POST -> /api/v1/clientes
+  <TABLE>
+      <THEAD>
+          <TH>NOME</TH>
+          <TH>SEXO</TH>
+      </THEAD>
+      <TBODY>
+          <TR>
+              <TD>STRING</TD>
+              <TD>STRING</TD>
+          </TR>
+      </TBODY>
+  </TABLE>  
+  
+- PUT ->  /api/v1/cliente/{id}
+- Delete -> /api/v1/cliente/{id}
 
 ## Subindo servidor
 
