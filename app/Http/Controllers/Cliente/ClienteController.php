@@ -11,9 +11,19 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ClienteController extends Controller
 {
-    public function index () : JsonResponse
+
+    public function __construct(private Cliente $cliente) {}
+
+    public function index ( string $status ) : JsonResponse
     {
-        $cliente = Cliente::where('status', true)->get();
+        $status = $this->cliente->validStatus(strtolower($status));
+
+        if($status === -1) {
+            return response()->json(['message' => 'Error ao consultar cliente'], 400);
+        }
+
+        $cliente = Cliente::where('status', $status)->get();
+
         return response()->json($cliente);
     }
 

@@ -17,8 +17,8 @@
 
 ## Rotas disponíveis
 
-- GET    /api/v1/clientes/all
 - GET    /api/v1/clientes
+- GET    /api/v1/clientes/{status}
 - GET    /api/v1/cliente/{id}
 - POST   /api/v1/clientes
 - PUT    /api/v1/cliente/{id}
