@@ -21,7 +21,7 @@
 - GET -> /api/v1/clientes/{status}
   <TABLE>
       <THEAD>
-          <TH COLSPAN=2 style="text-align:center">STATUS</TH>
+          <TH COLSPAN=2 style="text-align:center"><center>STATUS</center></TH>
       </THEAD>
       <TR>
           <TD>
