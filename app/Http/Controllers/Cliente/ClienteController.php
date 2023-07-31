@@ -28,10 +28,13 @@ class ClienteController extends Controller
             'nome' => ['required', 'string'],
             'sexo' => ['required', 'string'],
         ]);
+
         $data = $request->toArray();
         $data['status'] = true;
         $request->merge($data);
-        $cliente = Cliente::create($request->all());
+
+        Cliente::create($request->all());
+
         return response()->json(['message' => 'Criado com sucesso'], 204);
     }
 
@@ -58,27 +61,22 @@ class ClienteController extends Controller
             'status' => ['required', 'string'],
         ]);
 
-        $data = $request->toArray();
+        $update = false;
         $status_cliente = strtolower($request->input('status'));
-        $cliente = Cliente::find($id);
+        $cliente = new Cliente();
+        $status =  $cliente->validStatus($status_cliente);
 
-        if (empty($cliente)) {
+        $updateCliente = $cliente->find($id);
+
+        if (empty($updateCliente) || $status === -1 ) {
             return response()->json(['message' => 'cliente indisponível'], 404);
         }
 
-        if ( $status_cliente === 'ativo') {
-            $data['status'] = true;
-        }elseif ( $status_cliente === 'desativado' ) {
-            $data['status'] = false;
-        }else {
-            return response()->json(['message' =>'Error ao atualizar'], 400);
+        $update = $updateCliente->update(['status' => $status ]);
+
+        if($update === false)  {
+            return response()->json(['message' => 'Erro ao executar ação.'], 400);
         }
-
-        $request = $request->merge($data);
-
-        $cliente->update([
-            'status' => $request['status']
-        ]);
 
         return response()->json(['message' => 'Atualizado com sucesso'], 201);
     }

@@ -18,4 +18,14 @@ class Cliente extends Model
         'status'
     ];
 
+    public function validStatus ($status_cliente) : int
+    {
+        if ( $status_cliente === 'ativo') {
+            return 1;
+        } elseif ( $status_cliente === 'desativado' ) {
+            return 0;
+        }
+
+        return -1;
+    }
 }
