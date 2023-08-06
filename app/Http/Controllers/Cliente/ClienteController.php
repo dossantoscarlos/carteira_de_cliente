@@ -12,8 +12,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ClienteController extends Controller
 {
 
-    public function __construct(private Cliente $cliente) {}
-
     public function index ( string $status ) : JsonResponse
     {
         $status = $this->cliente->validStatus(strtolower($status));
